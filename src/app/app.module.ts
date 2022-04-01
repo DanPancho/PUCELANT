@@ -9,9 +9,12 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { LoginService } from './services/login.service';
 // Firebase
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
 //import {AngularFireDatabaseModule} from 'angularfire2/database'
 //import {AngularFireModule} from 'angularfire2';
 //import {AngularFireStorageModule} from 'angularfire2/storage';
@@ -27,13 +30,14 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     AppRoutingModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AngularFireAuthModule
     //AngularFireDatabaseModule
     //AngularFireModule.initializeApp(environment.firebase),
     //AngularFireStorageModule,
    // AngularFireAuth,
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,15 +9,24 @@
             <form [formGroup]="form" >
                 <div class="input-group mb-3 inp">
                     <span class="input-group-text" id="basic-addon1" style="border: 1px solid black;">Email</span>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" style="border: 1px solid black;">
+                    <input formControlName="correo"  type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" style="border: 1px solid black;">
                 </div>
                 <div class="input-group mb-3 inp2">
                     <span class="input-group-text" id="basic-addon1" style="border: 1px solid black;">Contrasena</span>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" style="border: 1px solid black;" aria-describedby="basic-addon1">
+                    <input  formControlName='pass' type="password" class="form-control" placeholder="Username" aria-label="Username" style="border: 1px solid black;" aria-describedby="basic-addon1">
                 </div>
                 <div class="btn">
-                    <button type="submit" class="btn btn-primary">SUBMIT!!!</button>
+                    <div class="btn">
+                        <button type="submit" class="btn btn-primary" (click)="onEmail()">Ingresar</button>
+                    </div>
+                    <div class="btn">
+                        <button type="submit" class="btn btn-primary" (click)="onGoogle()">Google</button>
+                    </div>
+                    <div class="btn">
+                        <button type="submit" class="btn btn-primary">Facebook</button>
+                    </div>
                 </div>
+                
                 
             </form>
         </div>  
