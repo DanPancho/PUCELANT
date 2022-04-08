@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/27b504bc-8bed-41c6-9b53-702572b71da7/resourceGroups/PUCELANT_group/providers/Microsoft.Web/sites/pucelant",
+    "appService.deploySubpath": "."
+}

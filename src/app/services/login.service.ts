@@ -3,12 +3,17 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
   auth = firebase.auth;
-  constructor(private authF: AngularFireAuth) { }
+  public chats: any[] = [];
+
+  constructor(private authF: AngularFireAuth, private firestore: AngularFirestore) {
+    
+  }
 
   async loginGoogle(){
     try{
@@ -31,5 +36,21 @@ export class LoginService {
       console.log(e);
       return null
     }
+  }
+
+  getUser(){
+    return this.authF.authState;
+  }
+
+  logout(){
+    this.authF.signOut();
+  }
+
+  cargarMensajes(){ 
+    return this.firestore.collection("chats").valueChanges()
+  } 
+
+  agregarMensaje(mensaje: any){
+    this.firestore.collection("chats").add(mensaje)
   }
 }
