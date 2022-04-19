@@ -49,3 +49,7 @@
 .contenedorMensajes::-webkit-scrollbar{
     display: none;
 }
+
+a { 
+    cursor: pointer;
+}

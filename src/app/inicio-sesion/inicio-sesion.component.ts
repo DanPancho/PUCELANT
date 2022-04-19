@@ -10,24 +10,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./inicio-sesion.component.css']
 })
 export class InicioSesionComponent implements OnInit {
-  show: boolean;
   items: Observable<any[]>;
   form = new FormGroup({
     correo: new FormControl(),
     pass: new FormControl(),
   });
-
+  datos: any
   constructor( private firestore: AngularFirestore, private service: LoginService, private route: Router) { 
-    this.items = this.firestore.collection('Publicaciones').valueChanges();
+    this.items = this.firestore.collection('chats', ref => ref.orderBy("fecha","asc")).valueChanges();
     this.items.subscribe((data)=>{
-      //console.log(data);
+      console.log(data);
     });
-    this.show = true;
-    this.service.getUser().subscribe((data) => { 
-      if(data != null){
-        this.show = false;
-      }
-    })
   }
 
   ngOnInit(): void {
@@ -38,6 +31,7 @@ export class InicioSesionComponent implements OnInit {
     try{
       const {correo , pass} = this.form.value;
       this.service.login(correo,pass);
+      this.route.navigate(["home"])
     }catch(e){
       console.log(e);
     }
@@ -46,8 +40,7 @@ export class InicioSesionComponent implements OnInit {
   async onGoogle(){
     try{
       await this.service.loginGoogle();
-      this.show = false;
-      this.route.navigate(["/chat"])
+      this.route.navigate(["home"])
     }
     catch(e){
       console.log(e);

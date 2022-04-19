@@ -1,4 +1,4 @@
-<ul class="nav">
+<ul class="nav" *ngIf="usuarioLogeado">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Active</a>
     </li>
@@ -9,7 +9,7 @@
       <a class="nav-link" href="#">Notificaciones</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link disabled">Disabled</a>
+      <a class="nav-link" (click)="logout()" routerLink="/">Log Out</a>
     </li>
   </ul>
 

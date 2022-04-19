@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChatComponent } from './chat/chat.component';
+import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 const routes: Routes = [
-  {path: "chat", component: ChatComponent },
+  {path: "*", component: InicioSesionComponent},
+  {path: "home", component: ChatComponent },
 ];
 
 @NgModule({
@@ -10,4 +12,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const Rutas = [ChatComponent]
+export const Rutas = [InicioSesionComponent, ChatComponent]
