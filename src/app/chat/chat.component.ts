@@ -43,8 +43,4 @@ export class ChatComponent implements OnInit {
     this.service.agregarMensaje(mensaje)
     this.nuevoMensaje = "";
   }
-  logout(){
-    this.service.logout();
-    this.componente.logeado = false;
-  }
 }

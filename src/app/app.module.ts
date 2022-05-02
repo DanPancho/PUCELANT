@@ -18,6 +18,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { ChatComponent } from './chat/chat.component';
+import { PublicacionesComponent } from './publicaciones/publicaciones.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { MenuprincipalComponent } from './menuprincipal/menuprincipal.component';
 
 //import {AngularFireDatabaseModule} from 'angularfire2/database'
 //import {AngularFireModule} from 'angularfire2';
@@ -29,7 +32,10 @@ import { ChatComponent } from './chat/chat.component';
     AppComponent,
     InicioSesionComponent,
     ChatComponent,
-    Rutas
+    Rutas,
+    PublicacionesComponent,
+    InicioComponent,
+    MenuprincipalComponent
   ],
   imports: [
     BrowserModule,
