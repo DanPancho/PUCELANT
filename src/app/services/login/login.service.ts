@@ -10,9 +10,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class LoginService {
   auth = firebase.auth;
   public chats: any[] = [];
-  itemsCollection:any;
-  constructor(private authF: AngularFireAuth, private firestore: AngularFirestore) {
-    this.itemsCollection = null;
+  constructor(private authF: AngularFireAuth) {
   }
 
   async loginGoogle(){
@@ -44,15 +42,5 @@ export class LoginService {
 
   logout(){
     this.authF.signOut();
-  }
-
-  cargarMensajes(){ 
-    //this.itemsCollection = this.firestore.collection<any>('chats', ref => ref.orderBy('fecha',"desc"))
-    //console.log("CARGAR MENSAJES -> " + this.itemsCollection)
-    return this.firestore.collection("chats",ref => ref.orderBy("fecha","asc")).valueChanges()
-  } 
-
-  agregarMensaje(mensaje: any){
-    this.firestore.collection("chats").add(mensaje)
   }
 }

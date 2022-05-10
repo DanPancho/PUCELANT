@@ -1,0 +1,8 @@
+<div>
+    <ul *ngFor="let item of Amigos; let indice = index" >
+        <li *ngFor="let amigo of Amigos[indice].amigos; let i = index">
+            <img class="img-xs rounded-circle" src={{amigo.img_ami}} alt="friend">
+            <p (click)="mensajes(i)">{{amigo.nombre_ami}}</p>
+        </li>
+    </ul>
+</div>

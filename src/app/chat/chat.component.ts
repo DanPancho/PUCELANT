@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../services/login.service';
-import { AppComponent } from '../app.component';
+import { ChatService } from '../services/chat/chat.service';
+import { LoginService } from '../services/login/login.service';
+import { AmigosComponent } from '../amigos/amigos.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -10,16 +12,19 @@ export class ChatComponent implements OnInit {
   usuarioLogeado : any;
   nuevoMensaje: string = ""
   mensajes: any[] = []
-  constructor(private service: LoginService,private componente: AppComponent) {
-    this.service.cargarMensajes().subscribe((data) => { 
+  url: any[];
+  constructor(private service_chat: ChatService, private service_login:LoginService,private router: Router,private amigos: AmigosComponent) {
+    this.url = this.router.url.split('/')
+    this.service_chat.cargarMensajes(this.url[3]).subscribe((data)=>{
       this.mensajes = data
     })
+
     
     
    }
   ngOnInit(): void {
     
-    this.service.getUser().subscribe((data) => { 
+    this.service_login.getUser().subscribe((data) => { 
       this.usuarioLogeado = data
     })
   }
@@ -28,23 +33,25 @@ export class ChatComponent implements OnInit {
   enviarMensaje(){
     let mensaje = { 
       emisor: this.usuarioLogeado.uid,
+      fecha: new Date().getTime(),
+      id: this.url[3],
+      receptor: this.amigos.receptor,
       texto: this.nuevoMensaje,
-      fecha: new Date().getTime()
+     
     }
-    this.service.agregarMensaje(mensaje)
+    this.service_chat.agregarMensaje(mensaje)
     this.nuevoMensaje = "";
   }
   send(){
     let mensaje = { 
       emisor: this.usuarioLogeado.uid,
+      fecha: new Date().getTime(),
+      id: this.url[3],
+      receptor: this.amigos.receptor,
       texto: this.nuevoMensaje,
-      fecha: new Date().getTime()
     }
-    this.service.agregarMensaje(mensaje)
+    this.service_chat.agregarMensaje(mensaje)
     this.nuevoMensaje = "";
   }
-  logout(){
-    this.service.logout();
-    this.componente.logeado = false;
-  }
 }
+
