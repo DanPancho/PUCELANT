@@ -22,11 +22,7 @@ import { PublicacionesComponent } from './publicaciones/publicaciones.component'
 import { InicioComponent } from './inicio/inicio.component';
 import { MenuprincipalComponent } from './menuprincipal/menuprincipal.component';
 import { AmigosComponent } from './amigos/amigos.component';
-
-//import {AngularFireDatabaseModule} from 'angularfire2/database'
-//import {AngularFireModule} from 'angularfire2';
-//import {AngularFireStorageModule} from 'angularfire2/storage';
-//import {AngularFireAuth, AngularFireAuthModule} from 'angularfire2/auth';
+import { PublicacionesService } from './services/publicaciones/publicaciones.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +43,7 @@ import { AmigosComponent } from './amigos/amigos.component';
     AngularFireAuthModule,
     FormsModule
   ],
-  providers: [LoginService,ChatService,AmigosComponent],
+  providers: [LoginService,ChatService,PublicacionesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

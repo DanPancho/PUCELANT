@@ -1,4 +1,4 @@
-<ul class="nlinks d-flex align-items-center mt-3 mt-md-0">
+<ul class="nlinks d-flex align-items-center mt-3 mt-md-0 nav">
     <li class="menuprincipal">
         <a href="">PUCELANT</a>
     </li>
@@ -10,5 +10,16 @@
     </li>
     <li class="menuprincipal">
         <a class="nav-link" href="#" (click)="logout()" routerLink="/">CERRAR SESION</a>
+    </li>
+    <li>
+        <div class="input-group mb-3 form">
+            <span class="input-group-text" id="basic-addon1">🔍︎</span>
+            <form action="" (ngSubmit)="onSubmit()" [formGroup]="form">
+                <input formControlName="buscado" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            </form>
+            <form action="" (ngSubmit)="onSubmit()" [formGroup]="form">
+                <button type="submit">Nueva Publicacion</button>
+            </form>
+        </div>
     </li>
 </ul>

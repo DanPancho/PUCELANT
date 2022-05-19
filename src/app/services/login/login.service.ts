@@ -3,19 +3,17 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
   auth = firebase.auth;
   public chats: any[] = [];
-  constructor(private authF: AngularFireAuth) {
-  }
+  constructor(private authF: AngularFireAuth){}
 
   async loginGoogle(){
     try{
-      
       return await this.authF.signInWithPopup(new this.auth.GoogleAuthProvider());
     }catch(e){
       console.log(e);
@@ -43,4 +41,5 @@ export class LoginService {
   logout(){
     this.authF.signOut();
   }
+
 }

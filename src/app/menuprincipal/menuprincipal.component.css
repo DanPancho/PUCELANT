@@ -1,3 +1,31 @@
 .menuprincipal{
     list-style: none;
 }
+
+.nav {
+    margin-left: 2em;
+    position: fixed;
+}
+
+.form{
+    margin-top: 1em;
+    margin-left: 45em;
+}
+input{
+    width: 10em;
+}
+
+button{
+    margin-left:2em;
+    border-radius: 10px;
+}
+button:hover{
+    color: #fff;
+    background-color: red;
+    cursor: pointer;
+}
+@media (max-width: 1517px) {
+    .form{
+        margin-left: 30em;
+    }
+}

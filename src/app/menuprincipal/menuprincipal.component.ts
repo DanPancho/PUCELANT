@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { AppComponent } from '../app.component';
 import { LoginService } from '../services/login/login.service';
 
@@ -9,6 +10,9 @@ import { LoginService } from '../services/login/login.service';
 })
 export class MenuprincipalComponent implements OnInit {
 
+  form = new FormGroup({
+    buscado: new FormControl()
+  })
   constructor(private service: LoginService) { }
 
   ngOnInit(): void {
@@ -17,5 +21,7 @@ export class MenuprincipalComponent implements OnInit {
   logout(){
     this.service.logout();
   }
+  onSubmit(){
 
+  }
 }

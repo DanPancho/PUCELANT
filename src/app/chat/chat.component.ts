@@ -13,7 +13,7 @@ export class ChatComponent implements OnInit {
   nuevoMensaje: string = ""
   mensajes: any[] = []
   url: any[];
-  constructor(private service_chat: ChatService, private service_login:LoginService,private router: Router,private amigos: AmigosComponent) {
+  constructor(private service_chat: ChatService, private service_login:LoginService,private router: Router) {
     this.url = this.router.url.split('/')
     this.service_chat.cargarMensajes(this.url[3]).subscribe((data)=>{
       this.mensajes = data
@@ -23,7 +23,6 @@ export class ChatComponent implements OnInit {
     
    }
   ngOnInit(): void {
-    
     this.service_login.getUser().subscribe((data) => { 
       this.usuarioLogeado = data
     })
@@ -35,7 +34,6 @@ export class ChatComponent implements OnInit {
       emisor: this.usuarioLogeado.uid,
       fecha: new Date().getTime(),
       id: this.url[3],
-      receptor: this.amigos.receptor,
       texto: this.nuevoMensaje,
      
     }
@@ -47,7 +45,6 @@ export class ChatComponent implements OnInit {
       emisor: this.usuarioLogeado.uid,
       fecha: new Date().getTime(),
       id: this.url[3],
-      receptor: this.amigos.receptor,
       texto: this.nuevoMensaje,
     }
     this.service_chat.agregarMensaje(mensaje)

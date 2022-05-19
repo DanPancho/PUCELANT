@@ -1,8 +1,11 @@
-<div>
-    <ul *ngFor="let item of Amigos; let indice = index" >
-        <li *ngFor="let amigo of Amigos[indice].amigos; let i = index">
-            <img class="img-xs rounded-circle" src={{amigo.img_ami}} alt="friend">
-            <p (click)="mensajes(i)">{{amigo.nombre_ami}}</p>
-        </li>
-    </ul>
+<div class="contenedor">
+    <h3>FRIENDS</h3>
+    <div class="amigos">
+        <ul *ngFor="let item of Amigos; let indice = index" >
+            <li *ngFor="let amigo of Amigos[indice].amigos; let i = index" (click)="mensajes(i)">
+                <a >{{amigo.nombre_ami}}</a>
+                <img class="img-xs rounded-circle" src={{amigo.img_ami}} alt="friend">
+            </li>
+        </ul>
+    </div>
 </div>

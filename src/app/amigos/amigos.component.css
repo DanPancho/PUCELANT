@@ -1,7 +1,30 @@
+.contenedor{
+    border: 1px solid #d7d7d7;   
+    background-color: #ffffff;
+    float: right;
+    margin-top: 1em;
+    margin-left: 3em;
+    border-radius: 10px;
+    position: fixed;
+}
+
+h3{
+   border: 1px solid #d7d7d7;   
+   background-color: #ffffff;
+   color: #000;
+   padding: 4px;
+   padding-right: 2em;
+   padding-left: 2em;
+   border-radius: 10px;
+}
+.amigos{
+    display: flex;
+    border-radius: 10px;
+}
 .img-xs {
     width: 50px;
     height: 50px;
-    margin-left: 2em;
+    margin-left: 1em;
     margin-bottom: 1em;
 }
 
@@ -9,10 +32,14 @@
     border-radius: 50% !important;
 }
 
-p { 
-    cursor: pointer;
+a{
+    padding-right: 5em;
 }
 
 li{
-    display: flex;
+    cursor: pointer;
+    list-style: none;
+}
+li:hover { 
+    background-color: rgb(230, 222, 212);
 }
