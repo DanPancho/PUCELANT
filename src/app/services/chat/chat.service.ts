@@ -19,7 +19,6 @@ export class ChatService {
   }
 
   buscarAmigos(id: string){
-    console.log(id + " EL QUE ENTRA")
     return this.firestore.collection("friends", ref => ref.where("usuario", "==", id)).valueChanges();
   }
 

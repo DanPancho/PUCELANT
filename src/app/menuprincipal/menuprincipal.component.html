@@ -1,15 +1,15 @@
-<ul class="nlinks d-flex align-items-center mt-3 mt-md-0 nav">
+<ul class="nlinks d-flex align-items-center mt-3 mt-md-0 nav" id="init">
     <li class="menuprincipal">
-        <a href="">PUCELANT</a>
+        <a routerLink="/home">PUCELANT</a>
     </li>
     <li class="menuprincipal">
-        <a class="nav-link" href="#" routerLink="/home">PERFIL</a>
+        <a class="nav-link" (click)="perfil()"routerLink="" >PERFIL</a>
     </li>
     <li class="menuprincipal">
-        <a class="nav-link" href="#" routerLink="/inicio">INICIO</a>
+        <a class="nav-link" href="#" routerLink="/home">INICIO</a>
     </li>
     <li class="menuprincipal">
-        <a class="nav-link" href="#" (click)="logout()" routerLink="/">CERRAR SESION</a>
+        <a class="nav-link" href="#" (click)="logout()" routerLink="">CERRAR SESION</a>
     </li>
     <li>
         <div class="input-group mb-3 form">
@@ -17,9 +17,14 @@
             <form action="" (ngSubmit)="onSubmit()" [formGroup]="form">
                 <input formControlName="buscado" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
             </form>
-            <form action="" (ngSubmit)="onSubmit()" [formGroup]="form">
+            <div (click)="openModal()">
                 <button type="submit">Nueva Publicacion</button>
-            </form>
+            </div>
+            
+            
         </div>
     </li>
 </ul>
+<div *ngIf="modalSwitch == true">
+    <app-nueva-publicacion></app-nueva-publicacion>
+</div>

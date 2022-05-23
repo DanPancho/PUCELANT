@@ -4,12 +4,13 @@ import { ChatComponent } from './chat/chat.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
+
 const routes: Routes = [
   {path: "auth", component: InicioSesionComponent},
   {path:"home", component: PublicacionesComponent},
-  {path: "inicio", component: InicioComponent},
   {path: "home/chat/:id", component: ChatComponent},
   {path: "chat", component: ChatComponent},
+  {path: "home/user/:id", component: InicioComponent},
   {path: '**', redirectTo: 'auth'}
 
 ];

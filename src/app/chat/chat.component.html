@@ -6,10 +6,13 @@
     
     <div class="card-body">
       <div class="contenedorMensajes">
-          <p *ngFor="let mensaje of mensajes; let indice = index" class="p-2"
-          [ngClass]="(usuarioLogeado.uid==mensaje.emisor)? 'enviado' : 'recibido' ">
-              {{mensaje.texto}}
+        <div *ngFor="let mensaje of mensajes; let indice = index">
+          <p  class="p-2"
+          [ngClass]="(usuarioLogeado.uid==mensaje.emisor)? 'enviado' : 'recibido'" *ngIf="mensaje.texto!=''">
+            {{mensaje.texto}}
           </p>
+        </div>
+          
       </div>
     </div>
     <form class="card-footer text-muted input-group" (ngSubmit)="enviarMensaje()">

@@ -1,0 +1,21 @@
+<div class="contenedor">
+    <div class="modal_body">
+        <form action="" [formGroup]="form">
+            <div class="input-group mb-3 inp">
+                <span class="input-group-text" id="basic-addon1" style="border: 1px solid black;">URL IMG</span>
+                <input formControlName="url_img" class="form-control" placeholder="URL IMG" aria-label="Username" style="border: 1px solid black;" aria-describedby="basic-addon1">
+                <button class="btn" style="border: 1px solid black; margin-left: 2em;" (click)="closeModal()">X</button>
+            </div>
+            <div class="input-group mb-3 inp">
+                <span class="input-group-text" id="basic-addon1" style="border: 1px solid black;">Descripcion</span>
+                <input  formControlName="descripcion" class="form-control" placeholder="Descripcion" aria-label="Username" style="border: 1px solid black;" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3 inp_btn">
+                <div>
+                    <button class="btn2" style="border: 1px solid black; margin-left: 2em;" (click)="onShare()">Publicar</button>
+                </div>
+               
+            </div>
+        </form>
+    </div>
+</div>

@@ -4,11 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { LoginService } from './services/login/login.service';
 import { ChatService } from './services/chat/chat.service';
 import { FormsModule } from '@angular/forms';
@@ -23,7 +19,10 @@ import { InicioComponent } from './inicio/inicio.component';
 import { MenuprincipalComponent } from './menuprincipal/menuprincipal.component';
 import { AmigosComponent } from './amigos/amigos.component';
 import { PublicacionesService } from './services/publicaciones/publicaciones.service';
-
+import { NuevaPublicacionComponent } from './nueva-publicacion/nueva-publicacion.component';
+import { NuevaPublicacionService } from './services/nuevaPublicacion/nueva-publicacion.service';
+import { BuscarUsuarioService } from './services/buscarUsuario/buscar-usuario.service';
+import { NewFriendService } from './services/newFriend/new-friend.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +31,8 @@ import { PublicacionesService } from './services/publicaciones/publicaciones.ser
     PublicacionesComponent,
     InicioComponent,
     MenuprincipalComponent,
-    AmigosComponent
+    AmigosComponent,
+    NuevaPublicacionComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +43,7 @@ import { PublicacionesService } from './services/publicaciones/publicaciones.ser
     AngularFireAuthModule,
     FormsModule
   ],
-  providers: [LoginService,ChatService,PublicacionesService],
+  providers: [LoginService,ChatService,PublicacionesService,NuevaPublicacionService,BuscarUsuarioService,NewFriendService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

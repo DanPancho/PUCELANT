@@ -1,10 +1,11 @@
 .menuprincipal{
-    list-style: none;
+    list-style: none; 
 }
 
 .nav {
     margin-left: 2em;
     position: fixed;
+    z-index: 10;
 }
 
 .form{
@@ -13,6 +14,7 @@
 }
 input{
     width: 10em;
+    
 }
 
 button{
@@ -24,8 +26,9 @@ button:hover{
     background-color: red;
     cursor: pointer;
 }
-@media (max-width: 1517px) {
+@media (min-width: 900px) {
     .form{
         margin-left: 30em;
     }
+    
 }

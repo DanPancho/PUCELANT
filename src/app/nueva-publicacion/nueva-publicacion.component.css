@@ -1,0 +1,40 @@
+.contenedor{
+    /*display: flex;
+    justify-content: center;*/
+    position: fixed;
+    margin-left: 30%;
+    z-index: 10;
+    margin-top: 15%;
+    background: linear-gradient(
+        to right, #bd68f5,
+        #f06e6e,#f1c07a
+    );
+    padding: 3em;
+    border-radius: 10px;
+}
+.inp{
+    width: 40em;
+}
+.btn{
+    background-color: #fff;
+}
+.btn:hover{
+    color: #fff;
+    background-color: red;
+}
+
+.inp_btn{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.btn2:hover{
+    background-color: rgb(52, 248, 101);
+}
+
+.btn2{
+    height: 2.5em;
+    width: 10em;
+    border-radius: 10px;
+}

@@ -1,9 +1,12 @@
-
 body {
     background-color: #f9fafb;
-    margin-top: 20px;
 }
-
+#snippetContent{
+    padding-top: 4em;
+    background: linear-gradient(
+        to right, #96fce9, #a1c5fa,#e6bcfa
+    );
+}
 .profile-page .profile-header {
     box-shadow: 0 0 10px 0 rgba(183, 192, 206, 0.2);
     border: 1px solid #f2f4f9;
@@ -164,11 +167,12 @@ body {
     border-radius: 50% !important;
 }
 
-img {
+.img_p {
     vertical-align: middle;
     border-style: none;
+    width: 50em;
+    height: 25em;
 }
-
 .card-header:first-child {
     border-radius: 0 0 0 0;
 }
@@ -211,8 +215,20 @@ img {
     flex-direction: column;
     min-width: 0;
     word-wrap: break-word;
-    background-color: #fff;
+    /*background-color: #fff;*/
     background-clip: border-box;
     border: 1px solid #f2f4f9;
     border-radius: 0.25rem;
+}
+.publicaciones{
+    margin-left: 5em;
+}
+
+.add{
+    border-radius: 10px;
+}
+
+.add:hover{
+    color: #fff;
+    background-color: rgb(98, 0, 255);
 }

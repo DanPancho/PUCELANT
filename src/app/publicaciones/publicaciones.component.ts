@@ -11,11 +11,12 @@ import { LoginService } from '../services/login/login.service';
 })
 export class PublicacionesComponent implements OnInit {
   publicaciones: any[] = [];
+
   constructor(private service_publicaciones:PublicacionesService, private service_chat: ChatService, private service_login: LoginService){
     // Verificar si es un nuevo usuario -> Buscar el id en la tabla de amigos 
     let userid:any;
     let username:  any;
-    let imguser: any;
+    let imguser: any; 
     this.service_login.getUser().subscribe((dataUser)=>{
       userid = dataUser?.uid;
       username = dataUser?.displayName;
@@ -26,17 +27,13 @@ export class PublicacionesComponent implements OnInit {
         }
       })
     })
-
-    this.service_login.getUser().subscribe((data)=>{
-      console.log(data)
-    })
-    
     
     this.service_publicaciones.cargarPublicaciones().subscribe((data)=>{
         this.publicaciones = data;
-        console.log(this.publicaciones)
     })
   }
   ngOnInit(){
   }
+
+
 }
