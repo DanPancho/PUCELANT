@@ -52,4 +52,6 @@
 
 a { 
     cursor: pointer;
+    font-style: normal;
+    color: #fff;
 }

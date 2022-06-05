@@ -11,7 +11,7 @@ import { LoginService } from '../services/login/login.service';
 })
 export class PublicacionesComponent implements OnInit {
   publicaciones: any[] = [];
-
+  like: any;
   constructor(private service_publicaciones:PublicacionesService, private service_chat: ChatService, private service_login: LoginService){
     // Verificar si es un nuevo usuario -> Buscar el id en la tabla de amigos 
     let userid:any;
@@ -28,12 +28,15 @@ export class PublicacionesComponent implements OnInit {
       })
     })
     
-    this.service_publicaciones.cargarPublicaciones().subscribe((data)=>{
+    let subscripcion = this.service_publicaciones.cargarPublicaciones().subscribe((data)=>{
         this.publicaciones = data;
+        
     })
   }
   ngOnInit(){
   }
-
+  onLike(uid:any){
+    this.service_publicaciones.onLike(uid)
+  }
 
 }

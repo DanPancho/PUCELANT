@@ -20,4 +20,35 @@ export class PublicacionesService {
   enviarPublicacionesByID(id:any){
     return this.firebase.collection("publicaciones", ref => ref.where("emisor","==", id).orderBy("fecha_publicacion","desc")).valueChanges();
   }
+
+  onLike(uid:any){
+    const document = this.firebase.collection("publicaciones", ref => ref.where("emisor","==", uid)).get();
+    document.subscribe((data)=>{
+      let publicacion: Publicacion;
+      let suscripcion = this.getLikes(data).subscribe((like:any)=>{
+        publicacion = like;  
+        this.firebase.collection("publicaciones").doc(`${data.docs[0].id}`).update({
+          "likes": publicacion.likes + 1
+        })
+        suscripcion.unsubscribe();
+      })
+     
+    })
+      
+  }
+  
+  getLikes(data:any){
+    return this.firebase.collection("publicaciones").doc(`${data.docs[0].id}`).valueChanges();
+  }
+}
+
+interface Publicacion{
+  comentarios: string[],
+  emisor: string,
+  fecha_publicacion: Date,
+  img: string,
+  img_user: string,
+  likes: number,
+  nombre_user: string,
+  texto: string,
 }

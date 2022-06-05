@@ -3,7 +3,7 @@ import { user } from '@angular/fire/auth';
 import { FormControl, FormGroup } from '@angular/forms';
 import { LoginService } from '../services/login/login.service';
 import { NuevaPublicacionService } from '../services/nuevaPublicacion/nueva-publicacion.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-nueva-publicacion',
   templateUrl: './nueva-publicacion.component.html',
@@ -17,7 +17,7 @@ export class NuevaPublicacionComponent implements OnInit {
     descripcion: new FormControl()
   })
 
-  constructor(private modal_service: NuevaPublicacionService, private login_services: LoginService ) { }
+  constructor(private modal_service: NuevaPublicacionService, private login_services: LoginService, private router:Router ) { }
 
   ngOnInit(): void {
   }
@@ -47,6 +47,7 @@ export class NuevaPublicacionComponent implements OnInit {
         }
         this.modal_service.nuevaPublicacion(publicacion);
         this.closeModal();
+        //location.reload();
       }
       else{
         alert("DEBE INSERTAR LA URL DE LA IMAGEN PARA PODER PUBLICAR ")
