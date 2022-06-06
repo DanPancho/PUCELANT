@@ -21,8 +21,8 @@ export class PublicacionesService {
     return this.firebase.collection("publicaciones", ref => ref.where("emisor","==", id).orderBy("fecha_publicacion","desc")).valueChanges();
   }
 
-  onLike(uid:any){
-    const document = this.firebase.collection("publicaciones", ref => ref.where("emisor","==", uid)).get();
+  onLike(uid:any,fecha:any){
+    const document = this.firebase.collection("publicaciones", ref => ref.where("emisor","==", uid).where("fecha_publicacion","==",fecha)).get();
     document.subscribe((data)=>{
       let publicacion: Publicacion;
       let suscripcion = this.getLikes(data).subscribe((like:any)=>{

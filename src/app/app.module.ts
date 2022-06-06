@@ -23,6 +23,8 @@ import { NuevaPublicacionComponent } from './nueva-publicacion/nueva-publicacion
 import { NuevaPublicacionService } from './services/nuevaPublicacion/nueva-publicacion.service';
 import { BuscarUsuarioService } from './services/buscarUsuario/buscar-usuario.service';
 import { NewFriendService } from './services/newFriend/new-friend.service';
+import { ComentariosComponent } from './comentarios/comentarios.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,8 @@ import { NewFriendService } from './services/newFriend/new-friend.service';
     InicioComponent,
     MenuprincipalComponent,
     AmigosComponent,
-    NuevaPublicacionComponent
+    NuevaPublicacionComponent,
+    ComentariosComponent,
   ],
   imports: [
     BrowserModule,
